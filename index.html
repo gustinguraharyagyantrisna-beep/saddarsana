@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPI Sad Darsana & Nawa Darsana - SMA/SMK Kelas XI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: {
+                            50: '#fffbf0',
+                            100: '#fef3c7',
+                            300: '#fcd34d',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                        },
+                        vedic: {
+                            gold: '#fbbf24',
+                            deep: '#2e1065',
+                            accent: '#10b981',
+                            violet: '#4c1d95',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d97706; border-radius: 4px; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(30, 27, 75, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .mascot-bounce {
+            animation: bounceMascot 3s infinite ease-in-out;
+        }
+        @keyframes bounceMascot {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+        .wheel-container {
+            transition: transform 4s cubic-bezier(0.15, 0.99, 0.24, 0.99);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-full flex flex-col transition-colors duration-300 pb-24">
+
+    <!-- ================= HALAMAN LOGIN ================= -->
+    <div id="loginScreen" class="fixed inset-0 z-50 bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4 custom-scrollbar overflow-y-auto">
+        <div class="max-w-md w-full bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl border border-saffron-500/30 my-8">
+            <div class="text-center space-y-2 mb-6">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-tr from-saffron-600 to-amber-400 flex items-center justify-center text-3xl shadow-lg shadow-saffron-500/30">
+                    🕉️
+                </div>
+                <h2 class="text-2xl font-black text-slate-900 dark:text-white">MPI Sad Darsana</h2>
+                <p class="text-xs text-saffron-600 dark:text-saffron-400 font-semibold uppercase tracking-wider">Agama Hindu & Budi Pekerti SMA/SMK XI</p>
+            </div>
+
+            <form onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Nama Lengkap Siswa</label>
+                    <input type="text" id="loginName" required placeholder="Contoh: I Made Agus" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-saffron-500 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1">Kelas / Rombel</label>
+                    <input type="text" id="loginClass" required placeholder="Contoh: XI MIPA 1" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-saffron-500 text-sm">
+                </div>
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-saffron-600 to-amber-600 hover:from-saffron-700 hover:to-amber-700 text-white font-bold text-sm rounded-xl shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fas fa-sign-in-alt"></i> Masuk Ke Aplikasi Pembelajaran
+                </button>
+            </form>
+
+            <!-- IDENTITAS TIM PEMBUAT -->
+            <div class="mt-6 pt-5 border-t border-slate-200 dark:border-slate-800 text-left">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-saffron-600 dark:text-saffron-400 mb-2 flex items-center gap-1.5">
+                    <i class="fas fa-users text-xs"></i> Tim Penyusun & Pembuat Application:
+                </p>
+                <ol class="text-[11px] text-slate-600 dark:text-slate-400 space-y-1 list-decimal pl-4 font-medium leading-tight">
+                    <li>Dewa Ngakan Made Arjuna Wijayastra</li>
+                    <li>I Gusti Ngurah Aditya Wirawijaya</li>
+                    <li>I Gusti Ngurah Arya Gyan Trisna</li>
+                    <li>I Made Astra Wibhisana Tempo</li>
+                    <li>I Made Raditya Parama Maheswara</li>
+                    <li>I Wayan Yudista</li>
+                    <li>Kadek Bagus Swela Putra</li>
+                    <li>I Putu Bagus Mahardika</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOP HEADER -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-3 shadow-sm">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-saffron-600 to-vedic-gold flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-saffron-500/30">
+                    🕉️
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-tight">MPI Sad & Nawa Darsana</h1>
+                    <p class="text-xs text-saffron-600 dark:text-saffron-400 font-semibold">Agama Hindu XI</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <!-- User Profile Pill -->
+                <div class="flex items-center bg-saffron-50 dark:bg-slate-800 border border-saffron-200 dark:border-slate-700 rounded-full px-3 py-1">
+                    <span class="text-xs font-bold text-slate-700 dark:text-slate-200" id="headerUserName">Siswa</span>
+                    <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 mx-1">|</span>
+                    <span class="text-xs font-semibold text-saffron-600 dark:text-saffron-400" id="headerUserClass">Kelas</span>
+                    <span class="ml-2 text-[10px] bg-saffron-500 text-white font-bold px-2 py-0.5 rounded-full" id="headerUserPoints">0 PTS</span>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button id="themeToggleBtn" onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                    <i class="fas font-solid fa-moon dark:hidden text-indigo-600"></i>
+                    <i class="fas font-solid fa-sun hidden dark:block text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-6xl w-full mx-auto p-4 sm:p-6">
+
+        <!-- ================= PAGE 1: BERANDA ================= -->
+        <section id="page-beranda" class="space-y-6">
+            
+            <!-- Hero Banner dengan Maskot Rsi Jñana -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-saffron-600 via-amber-600 to-indigo-900 text-white p-6 sm:p-8 shadow-xl">
+                <div class="relative z-10 grid md:grid-cols-3 gap-6 items-center">
+                    <div class="md:col-span-2 space-y-3">
+                        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold uppercase tracking-wider">Media Pembelajaran Interaktif (MPI)</span>
+                        <h2 class="text-2xl sm:text-4xl font-black leading-tight">Filsafat Sad Darsana & Nawa Darsana</h2>
+                        <p class="text-sm sm:text-base text-amber-100 leading-relaxed">
+                            Pahami 6 Sistem Filsafat Hindu Astika & 3 Aliran Nastika secara interaktif dan menyenangkan bersama **Rsi Jñana**.
+                        </p>
+                        <div class="pt-2 flex flex-wrap gap-3">
+                            <button onclick="switchTab('materi')" class="px-5 py-2.5 bg-white text-slate-900 hover:bg-amber-100 font-bold rounded-xl text-sm transition shadow-lg flex items-center gap-2">
+                                <i class="fas fa-book-open text-saffron-600"></i> Mulai Belajar Materi
+                            </button>
+                            <button onclick="switchTab('kuis')" class="px-5 py-2.5 bg-amber-500/30 border border-white/40 hover:bg-amber-500/50 font-semibold rounded-xl text-sm transition flex items-center gap-2">
+                                <i class="fas fa-pen-nib"></i> Kuis 20 Soal
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- MASCOT RSI JÑANA DISPLAY -->
+                    <div class="flex flex-col items-center justify-center relative">
+                        <div class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-xs sm:text-sm p-3.5 rounded-2xl shadow-xl border border-saffron-300 dark:border-saffron-600 mb-2 relative max-w-xs text-center font-medium">
+                            <span id="mascotHomeText">"Om Swastyastu! Saya Rsi Jñana. Siap membimbingmu menguasai filsafat Darsana!"</span>
+                        </div>
+
+                        <div class="w-32 h-32 sm:w-40 sm:h-40 mascot-bounce relative">
+                            <svg viewBox="0 0 200 200" class="w-full h-full filter drop-shadow-lg">
+                                <circle cx="100" cy="90" r="75" fill="#fef3c7" opacity="0.4" />
+                                <circle cx="100" cy="90" r="65" fill="#fde68a" opacity="0.6" />
+                                <path d="M50 180 C50 130, 70 110, 100 110 C130 110, 150 130, 150 180 Z" fill="#d97706" />
+                                <path d="M70 120 L100 170 L130 120" fill="none" stroke="#f59e0b" stroke-width="4" />
+                                <circle cx="85" cy="130" r="4" fill="#78350f" />
+                                <circle cx="95" cy="138" r="4" fill="#78350f" />
+                                <circle cx="105" cy="138" r="4" fill="#78350f" />
+                                <circle cx="115" cy="130" r="4" fill="#78350f" />
+                                <circle cx="100" cy="85" r="32" fill="#fbd5a5" />
+                                <path d="M80 65 Q100 30 120 65 Z" fill="#b45309" />
+                                <circle cx="100" cy="45" r="8" fill="#fbbf24" />
+                                <path d="M78 92 C78 125, 122 125, 122 92 Z" fill="#ffffff" />
+                                <circle cx="90" cy="80" r="3" fill="#1e293b" />
+                                <circle cx="110" cy="80" r="3" fill="#1e293b" />
+                                <path d="M93 88 Q100 95 107 88" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" />
+                                <path d="M96 68 Q100 75 104 68 M100 66 L100 73" stroke="#dc2626" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identitas Penyusun Banner pada Beranda -->
+            <div class="glass-card rounded-2xl p-5 border border-saffron-200 dark:border-slate-800">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-saffron-600 dark:text-saffron-400 mb-3 flex items-center gap-2">
+                    <i class="fas fa-graduation-cap"></i> Identitas Tim Pembuat / Penyusun Media Pembelajaran:
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    <div class="p-2.5 bg-slate-100 dark:bg-slate-800/80 rounded-xl">1. Dewa Ngakan Made Arjuna Wijayastra</div>
+                    <div class="p-2.5 bg-slate-100 dark:bg-slate-800/80 rounded-xl">2. I Gusti Ngurah Aditya Wirawijaya</div>
+                    <div class="p-2.5 bg-slate-100 dark:bg-slate-800/80 rounded-xl">3. I Gusti Ngurah Arya Gyan Trisna</div>
+                    <div class="p-2.5 bg-slate-100 dark:bg-slate-800/80 rounded-xl">4. I Made Astra Wibhisana Tempo</div>
+                    <div class="p-2.5 bg-slate-100 dark:bg-slate-800/80 rounded-xl">5. I Made Raditya Parama Maheswara</div>
+                    <div class="p-2.5 bg-slate-100 dark:bg-slate-800/80 rounded-xl">6. I Wayan Yudista</div>
+                    <div class="p-2.5 bg-slate-100 dark:bg-slate-800/80 rounded-xl">7. Kadek Bagus Swela Putra</div>
+                    <div class="p-2.5 bg-slate-100 dark:bg-slate-800/80 rounded-xl">8. I Putu Bagus Mahardika</div>
+                </div>
+            </div>
+
+            <!-- Student Summary Stats Card -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="glass-card rounded-2xl p-4 flex items-center space-x-3 border-l-4 border-amber-500">
+                    <div class="p-3 bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300 rounded-xl">
+                        <i class="fas fa-trophy text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Total Poin</p>
+                        <p id="statPoints" class="text-xl font-black text-slate-800 dark:text-white">0 <span class="text-xs font-normal text-slate-400">/ 600</span></p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-4 flex items-center space-x-3 border-l-4 border-indigo-500">
+                    <div class="p-3 bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 rounded-xl">
+                        <i class="fas fa-id-badge text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Gelar Keilmuan</p>
+                        <p id="statTitle" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 truncate max-w-[120px]">🔰 Sisya Jiwatman</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-4 flex items-center space-x-3 border-l-4 border-emerald-500">
+                    <div class="p-3 bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 rounded-xl">
+                        <i class="fas fa-gamepad text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Wahana Selesai</p>
+                        <p id="statGamesDone" class="text-xl font-black text-slate-800 dark:text-white">0 <span class="text-xs font-normal text-slate-400">/ 4</span></p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-4 flex items-center space-x-3 border-l-4 border-purple-500">
+                    <div class="p-3 bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-300 rounded-xl">
+                        <i class="fas fa-clipboard-check text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Skor Kuis</p>
+                        <p id="statQuizScore" class="text-xl font-black text-slate-800 dark:text-white">- <span class="text-xs font-normal text-slate-400">/ 200</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Access Menu -->
+            <div>
+                <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+                    <i class="fas fa-rocket text-saffron-500"></i> Akses Cepat Fitur Belajar
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div onclick="switchTab('materi')" class="glass-card rounded-2xl p-5 hover:scale-[1.02] transition cursor-pointer group border border-slate-200 dark:border-slate-800">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-300 flex items-center justify-center text-2xl mb-3 group-hover:bg-saffron-600 group-hover:text-white transition">
+                            📖
+                        </div>
+                        <h4 class="font-bold text-slate-800 dark:text-white text-base">Materi Lengkap</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Pelajari Astika, Nastika, Catur Pramana, & Relevansi Abad 21.</p>
+                    </div>
+
+                    <div onclick="switchTab('latihan')" class="glass-card rounded-2xl p-5 hover:scale-[1.02] transition cursor-pointer group border border-slate-200 dark:border-slate-800">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-300 flex items-center justify-center text-2xl mb-3 group-hover:bg-emerald-600 group-hover:text-white transition">
+                            🎯
+                        </div>
+                        <h4 class="font-bold text-slate-800 dark:text-white text-base">Wahana Latihan</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Drag & Drop, Match Garis, TTS, dan Roda Keberuntungan.</p>
+                    </div>
+
+                    <div onclick="switchTab('kuis')" class="glass-card rounded-2xl p-5 hover:scale-[1.02] transition cursor-pointer group border border-slate-200 dark:border-slate-800">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 flex items-center justify-center text-2xl mb-3 group-hover:bg-indigo-600 group-hover:text-white transition">
+                            📝
+                        </div>
+                        <h4 class="font-bold text-slate-800 dark:text-white text-base">Kuis 20 Soal</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">20 Soal Uji Kompetensi Pilihan Ganda lengkap Pembahasan.</p>
+                    </div>
+
+                    <div onclick="switchTab('pencapaian')" class="glass-card rounded-2xl p-5 hover:scale-[1.02] transition cursor-pointer group border border-slate-200 dark:border-slate-800">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300 flex items-center justify-center text-2xl mb-3 group-hover:bg-purple-600 group-hover:text-white transition">
+                            🏅
+                        </div>
+                        <h4 class="font-bold text-slate-800 dark:text-white text-base">Pencapaian & Gelar</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Pantau kenaikan gelar spiritual dan koleksi lencana kamu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 2: MATERI LENGKAP ================= -->
+        <section id="page-materi" class="hidden space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 glass-card p-6 rounded-2xl">
+                <div>
+                    <h2 class="text-2xl font-black text-slate-800 dark:text-white flex items-center gap-2">
+                        <span>📖</span> Modul Pembelajaran Darsana
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Membahas Astika (Sad Darsana), Nastika, Catur Pramana, & Implementasi Yoga Abad 21.</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterMateri('pengantar')" class="materi-tab-btn active-materi-tab px-3 py-1.5 rounded-xl text-xs font-semibold bg-saffron-600 text-white">Pengantar</button>
+                    <button onclick="filterMateri('astika')" class="materi-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Astika (Sad Darsana)</button>
+                    <button onclick="filterMateri('nastika')" class="materi-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Nastika</button>
+                    <button onclick="filterMateri('abad21')" class="materi-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Relevansi Abad 21</button>
+                </div>
+            </div>
+
+            <div id="materiContentContainer" class="space-y-6">
+                <!-- Content inserted via JS dynamically -->
+            </div>
+        </section>
+
+        <!-- ================= PAGE 3: WAHANA LATIHAN ================= -->
+        <section id="page-latihan" class="hidden space-y-6">
+            <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-black text-slate-800 dark:text-white flex items-center gap-2">
+                        <span>🕹️</span> Wahana Latihan Interaktif
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Pilih wahana dan selesaikan tantangan untuk mendapatkan poin tambahan!</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <button onclick="switchWahana('dragdrop')" id="tab-wahana-dragdrop" class="wahana-nav-btn p-3 rounded-2xl font-bold text-xs sm:text-sm bg-saffron-600 text-white shadow-md transition flex items-center justify-center gap-2">
+                    <span>📦</span> Drag & Drop
+                </button>
+                <button onclick="switchWahana('tarikgaris')" id="tab-wahana-tarikgaris" class="wahana-nav-btn p-3 rounded-2xl font-bold text-xs sm:text-sm bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition flex items-center justify-center gap-2">
+                    <span>🔗</span> Match Pair
+                </button>
+                <button onclick="switchWahana('tts')" id="tab-wahana-tts" class="wahana-nav-btn p-3 rounded-2xl font-bold text-xs sm:text-sm bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition flex items-center justify-center gap-2">
+                    <span>🧩</span> TTS Darsana
+                </button>
+                <button onclick="switchWahana('wheel')" id="tab-wahana-wheel" class="wahana-nav-btn p-3 rounded-2xl font-bold text-xs sm:text-sm bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition flex items-center justify-center gap-2">
+                    <span>🎡</span> Roda Putar
+                </button>
+            </div>
+
+            <!-- CONTAINER WAHANA 1: DRAG AND DROP -->
+            <div id="wahana-dragdrop" class="space-y-6">
+                <div class="glass-card p-5 rounded-2xl border border-saffron-200 dark:border-slate-800">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-saffron-100 dark:bg-saffron-950 flex items-center justify-center text-2xl flex-shrink-0">📦</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white">Wahana 1: Drag & Drop Klasifikasi Darsana</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Klasifikasikan istilah ke dalam 6 Aliran Darsana yang tepat.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-100 dark:bg-slate-900 p-4 rounded-xl mb-6">
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">Pilihan Istilah:</p>
+                        <div id="dragItemsPool" class="flex flex-wrap gap-2 min-h-[60px]"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="dragDropTargets"></div>
+
+                    <div class="mt-6 flex justify-end">
+                        <button onclick="submitDragDrop()" class="px-6 py-3 bg-saffron-600 hover:bg-saffron-700 text-white font-bold rounded-xl text-sm shadow-lg transition flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i> Selesaikan Drag & Drop
+                        </button>
+                    </div>
+
+                    <div id="dragDropResult" class="hidden mt-6 p-5 rounded-2xl bg-amber-50 dark:bg-slate-900 border border-amber-300 dark:border-amber-800"></div>
+                </div>
+            </div>
+
+            <!-- CONTAINER WAHANA 2: MATCH PAIR -->
+            <div id="wahana-tarikgaris" class="hidden space-y-6">
+                <div class="glass-card p-5 rounded-2xl border border-saffron-200 dark:border-slate-800">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center text-2xl flex-shrink-0">🔗</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white">Wahana 2: Match Pair Pasangkan Istilah</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Pilih istilah kiri, lalu pilih pasangan definisi kanan.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 relative" id="matchPairContainer">
+                        <div class="space-y-3" id="matchPairLeft"></div>
+                        <div class="space-y-3" id="matchPairRight"></div>
+                    </div>
+
+                    <div class="mt-6 flex justify-end">
+                        <button onclick="submitMatchPair()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm shadow-lg transition flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i> Selesaikan Match Pair
+                        </button>
+                    </div>
+
+                    <div id="matchPairResult" class="hidden mt-6 p-5 rounded-2xl bg-emerald-50 dark:bg-slate-900 border border-emerald-300 dark:border-emerald-800"></div>
+                </div>
+            </div>
+
+            <!-- CONTAINER WAHANA 3: TTS -->
+            <div id="wahana-tts" class="hidden space-y-6">
+                <div class="glass-card p-5 rounded-2xl border border-saffron-200 dark:border-slate-800">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-950 flex items-center justify-center text-2xl flex-shrink-0">🧩</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white">Wahana 3: Teka-Teki Silang Darsana</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Isi huruf sesuai petunjuk mendatar & menurun.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-12 gap-6 items-start">
+                        <div class="lg:col-span-7 flex justify-center overflow-x-auto p-2">
+                            <div id="ttsGrid" class="grid grid-cols-10 gap-1 bg-slate-300 dark:bg-slate-800 p-2 rounded-xl border border-slate-400 dark:border-slate-700"></div>
+                        </div>
+
+                        <div class="lg:col-span-5 space-y-4 text-xs">
+                            <div class="bg-indigo-50 dark:bg-slate-900 p-4 rounded-xl border border-indigo-200 dark:border-indigo-900">
+                                <h4 class="font-bold text-indigo-800 dark:text-indigo-300 mb-2 flex items-center gap-2"><i class="fas fa-arrow-right"></i> MENDATAR</h4>
+                                <ul class="space-y-2 text-slate-700 dark:text-slate-300" id="ttsCluesAcross"></ul>
+                            </div>
+                            <div class="bg-purple-50 dark:bg-slate-900 p-4 rounded-xl border border-purple-200 dark:border-purple-900">
+                                <h4 class="font-bold text-purple-800 dark:text-purple-300 mb-2 flex items-center gap-2"><i class="fas fa-arrow-down"></i> MENURUN</h4>
+                                <ul class="space-y-2 text-slate-700 dark:text-slate-300" id="ttsCluesDown"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex justify-end">
+                        <button onclick="submitTTS()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-sm shadow-lg transition flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i> Selesaikan TTS
+                        </button>
+                    </div>
+
+                    <div id="ttsResult" class="hidden mt-6 p-5 rounded-2xl bg-indigo-50 dark:bg-slate-900 border border-indigo-300 dark:border-indigo-800"></div>
+                </div>
+            </div>
+
+            <!-- CONTAINER WAHANA 4: RODA PUTAR -->
+            <div id="wahana-wheel" class="hidden space-y-6">
+                <div class="glass-card p-5 rounded-2xl border border-saffron-200 dark:border-slate-800">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-950 flex items-center justify-center text-2xl flex-shrink-0">🎡</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white">Wahana 4: Roda Keberuntungan Darsana</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Putar roda 5 kali dan jawab pertanyaan acak.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="flex flex-col items-center justify-center relative">
+                            <div class="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[25px] border-t-red-600 z-20 -mb-4"></div>
+                            <div class="w-64 h-64 sm:w-72 sm:h-72 relative rounded-full border-4 border-amber-500 shadow-2xl overflow-hidden">
+                                <svg id="wheelSvg" viewBox="0 0 200 200" class="w-full h-full wheel-container"></svg>
+                            </div>
+
+                            <button id="spinWheelBtn" onclick="spinWheel()" class="mt-6 px-8 py-3 bg-gradient-to-r from-purple-600 to-saffron-600 hover:from-purple-700 hover:to-saffron-700 text-white font-black text-sm uppercase tracking-wider rounded-2xl shadow-xl transition transform active:scale-95">
+                                <i class="fas fa-sync-alt mr-2"></i> Putar Roda
+                            </button>
+                        </div>
+
+                        <div class="bg-slate-100 dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between min-h-[300px]">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-xs font-bold uppercase tracking-wider text-saffron-600">Putaran: <span id="wheelRoundCounter">0</span> / 5</span>
+                                <span class="text-xs bg-slate-200 dark:bg-slate-800 px-3 py-1 rounded-full font-semibold" id="wheelTopicBadge">Menunggu Putaran...</span>
+                            </div>
+
+                            <div id="wheelQuestionBox" class="my-auto text-center p-4">
+                                <p class="text-sm sm:text-base font-bold text-slate-800 dark:text-white leading-relaxed">
+                                    Klik tombol "Putar Roda" untuk memulainya!
+                                </p>
+                            </div>
+
+                            <div id="wheelOptionsBox" class="grid grid-cols-1 gap-2 mt-4 hidden"></div>
+                        </div>
+                    </div>
+
+                    <div id="wheelResult" class="hidden mt-6 p-5 rounded-2xl bg-purple-50 dark:bg-slate-900 border border-purple-300 dark:border-purple-800"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 4: KUIS EVALUASI (20 SOAL LENGKAP) ================= -->
+        <section id="page-kuis" class="hidden space-y-6">
+            <div class="glass-card p-6 rounded-2xl border border-saffron-200 dark:border-slate-800">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 border-b border-slate-200 dark:border-slate-800 pb-4">
+                    <div>
+                        <h2 class="text-2xl font-black text-slate-800 dark:text-white flex items-center gap-2">
+                            <span>📝</span> Kuis Evaluasi Sad & Nawa Darsana (20 Soal)
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Uji Pemahaman Materi Sad & Nawa Darsana (Skor Maksimal: 200 PTS)</p>
+                    </div>
+                    <div class="bg-saffron-100 dark:bg-slate-800 px-4 py-2 rounded-xl text-xs font-bold text-saffron-800 dark:text-saffron-300">
+                        Soal Terjawab: <span id="quizAnsweredCount">0</span> / 20
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 dark:bg-slate-900/80 p-4 rounded-xl border border-amber-200 dark:border-slate-800 mb-6 flex items-center gap-3">
+                    <div class="text-3xl">🧙‍♂️</div>
+                    <p class="text-xs text-slate-700 dark:text-slate-300">
+                        <strong>Rsi Jñana:</strong> "Pilihlah salah satu jawaban yang paling tepat pada seluruh 20 pertanyaan berikut, lalu klik tombol **'Selesaikan & Periksa Kuis'** di bagian bawah!"
+                    </p>
+                </div>
+
+                <!-- 20 SOAL CONTAINER -->
+                <div id="quizQuestionsContainer" class="space-y-6">
+                    <!-- Dynamic rendering by JS -->
+                </div>
+
+                <div class="mt-8 flex justify-end">
+                    <button onclick="submitQuiz()" class="px-8 py-3.5 bg-gradient-to-r from-saffron-600 to-amber-600 hover:from-saffron-700 hover:to-amber-700 text-white font-black rounded-2xl text-base shadow-xl transition flex items-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Selesaikan & Periksa Kuis (20 Soal)
+                    </button>
+                </div>
+
+                <!-- Hasil & Pembahasan Kuis -->
+                <div id="quizResultSection" class="hidden mt-8 p-6 rounded-3xl bg-white dark:bg-slate-900 border-2 border-saffron-400 shadow-2xl space-y-6">
+                    <!-- Dynamic rendering by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 5: PENCAPAIAN & GELAR ================= -->
+        <section id="page-pencapaian" class="hidden space-y-6">
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h2 class="text-2xl font-black text-slate-800 dark:text-white flex items-center gap-2">
+                            <span>🏆</span> Pencapaian & Gelar Spiritual
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Tingkatkan poin untuk mencapai gelar **Paramatman Samadhi Master**!</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-6 rounded-3xl relative overflow-hidden shadow-2xl border border-indigo-500/30 mb-6">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
+                        <div class="space-y-2 text-center sm:text-left">
+                            <span class="text-xs font-bold uppercase tracking-widest text-saffron-400">Gelar Saat Ini</span>
+                            <h3 id="achievementTitleName" class="text-2xl sm:text-3xl font-black text-amber-300">🔰 Sisya Jiwatman</h3>
+                            <p id="achievementTitleDesc" class="text-xs text-slate-300 max-w-md">Penjelajah kebenaran awal yang baru mulai mendalami Darsana.</p>
+                            <div class="pt-2">
+                                <div class="w-full sm:w-64 bg-slate-800 rounded-full h-3 overflow-hidden border border-slate-700">
+                                    <div id="achievementProgressBar" class="bg-gradient-to-r from-saffron-500 to-amber-400 h-full transition-all duration-500" style="width: 0%"></div>
+                                </div>
+                                <p class="text-[10px] text-slate-400 mt-1"><span id="achievementPointsNum">0</span> / 600 Poin</p>
+                            </div>
+                        </div>
+
+                        <div class="w-28 h-28 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-5xl border border-white/20 shadow-inner">
+                            <span id="achievementIcon">🔰</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-base font-bold text-slate-800 dark:text-white mb-3">Jenjang Gelar Keilmuan Darsana:</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="titlesListGrid"></div>
+
+                <h3 class="text-base font-bold text-slate-800 dark:text-white mt-8 mb-3">Lencana & Trophy Room:</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="badgeRoomGrid"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FIXED BOTTOM NAVIGATION BAR -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 shadow-2xl py-2 px-3">
+        <div class="max-w-md mx-auto flex justify-around items-center">
+            <button onclick="switchTab('beranda')" id="nav-beranda" class="nav-btn flex flex-col items-center p-1.5 rounded-xl text-saffron-600 dark:text-saffron-400 font-bold transition">
+                <i class="fas fa-home text-lg"></i>
+                <span class="text-[10px] mt-0.5">Beranda</span>
+            </button>
+            <button onclick="switchTab('materi')" id="nav-materi" class="nav-btn flex flex-col items-center p-1.5 rounded-xl text-slate-500 dark:text-slate-400 font-semibold transition hover:text-saffron-600">
+                <i class="fas fa-book text-lg"></i>
+                <span class="text-[10px] mt-0.5">Materi</span>
+            </button>
+            <button onclick="switchTab('latihan')" id="nav-latihan" class="nav-btn flex flex-col items-center p-1.5 rounded-xl text-slate-500 dark:text-slate-400 font-semibold transition hover:text-saffron-600">
+                <i class="fas fa-gamepad text-lg"></i>
+                <span class="text-[10px] mt-0.5">Latihan</span>
+            </button>
+            <button onclick="switchTab('kuis')" id="nav-kuis" class="nav-btn flex flex-col items-center p-1.5 rounded-xl text-slate-500 dark:text-slate-400 font-semibold transition hover:text-saffron-600">
+                <i class="fas fa-pen-nib text-lg"></i>
+                <span class="text-[10px] mt-0.5">Kuis</span>
+            </button>
+            <button onclick="switchTab('pencapaian')" id="nav-pencapaian" class="nav-btn flex flex-col items-center p-1.5 rounded-xl text-slate-500 dark:text-slate-400 font-semibold transition hover:text-saffron-600">
+                <i class="fas fa-award text-lg"></i>
+                <span class="text-[10px] mt-0.5">Gelar</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MODAL DETAIL RSI & FILSAFAT -->
+    <div id="detailModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 max-w-lg w-full rounded-3xl p-6 shadow-2xl border border-saffron-300 dark:border-slate-700 relative max-h-[85vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center font-bold">✕</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* ================= STATE MANAGEMENT ================= */
+        const state = {
+            studentName: "Siswa Dewata",
+            studentClass: "XI MIPA 1",
+            scoreDragDrop: 0,
+            scoreMatchPair: 0,
+            scoreTTS: 0,
+            scoreWheel: 0,
+            scoreQuiz: 0,
+            hasDoneDragDrop: false,
+            hasDoneMatchPair: false,
+            hasDoneTTS: false,
+            hasDoneWheel: false,
+            hasDoneQuiz: false,
+            quizAnswers: {},
+            
+            dragAssignments: { nyaya: [], vaisesika: [], samkhya: [], yoga: [], mimamsa: [], vedanta: [] },
+            matchSelections: {}, 
+            selectedLeftId: null,
+            ttsUserGrid: {},
+            wheelRoundsDone: 0,
+            wheelUserAnswers: []
+        };
+
+        /* ================= LOGIN HANDLER ================= */
+        function handleLogin(e) {
+            e.preventDefault();
+            const name = document.getElementById('loginName').value.trim();
+            const cls = document.getElementById('loginClass').value.trim();
+
+            if (name && cls) {
+                state.studentName = name;
+                state.studentClass = cls;
+                document.getElementById('headerUserName').innerText = name;
+                document.getElementById('headerUserClass').innerText = cls;
+                document.getElementById('loginScreen').classList.add('hidden');
+                updateMascotHomeSpeech(`"Om Swastyastu ${name} (${cls})! Mari kita pelajari 20 soal dan seluruh materi Darsana!"`);
+            }
+        }
+
+        /* ================= DATA MATERI ================= */
+        const materiData = {
+            pengantar: `
+                <div class="glass-card p-6 rounded-3xl space-y-4">
+                    <h3 class="text-xl font-bold text-saffron-600 dark:text-saffron-400">Pengertian Darsana & Landasan Filosofis</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Secara etimologi, kata <strong>Darsana</strong> berasal dari akar kata Sanskrit <em>"Drs"</em> yang berarti "melihat", "memandang", atau "mengamati". Dalam konteks filsafat Hindu, Darsana adalah pandangan ilmiah/filosofis tentang kebenaran mutlak (Satya) dan realitas alam semesta.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+                        <div class="bg-amber-50 dark:bg-slate-900 p-4 rounded-2xl border border-amber-200 dark:border-amber-900">
+                            <h4 class="font-bold text-amber-800 dark:text-amber-300 text-sm">Mananasastra & Wicarasastra</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Darsana sebagai pemikiran kritis sistematis yang rasional melalui penalaran mendalam dan perenungan akal budi.</p>
+                        </div>
+                        <div class="bg-indigo-50 dark:bg-slate-900 p-4 rounded-2xl border border-indigo-200 dark:border-indigo-900">
+                            <h4 class="font-bold text-indigo-800 dark:text-indigo-300 text-sm">Tarka & Sraddha</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Sintesis harmonis antara logika rasional (Tarka) dengan keyakinan iman rohani yang teguh (Sraddha).</p>
+                        </div>
+                    </div>
+                </div>
+            `,
+            astika: `
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-3xl">
+                        <h3 class="text-xl font-bold text-saffron-600 dark:text-saffron-400 mb-2">Astika: 6 Aliran Sad Darsana</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300">Kelompok filsafat yang mengakui otoritas Veda sebagai wahyu tertinggi Brahman.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        ${[
+                            { title: 'Nyaya Darsana', rsi: 'Maharsi Gautama', kitab: 'Nyaya Sutra', focal: 'Logika & Catur Pramana (Pratyaksa, Anumana, Upamana, Sabda)', color: 'border-blue-500', icon: '⚖️', key:'nyaya' },
+                            { title: 'Vaisesika Darsana', rsi: 'Maharsi Kanada', kitab: 'Vaisesika Sutra', focal: 'Atomisme (Paramanu) & 7 Padartha (Kategori Realitas)', color: 'border-emerald-500', icon: '⚛️', key:'vaisesika' },
+                            { title: 'Samkhya Darsana', rsi: 'Maharsi Kapila', kitab: 'Samkhya Sutra', focal: 'Dualisme Purusa (Roh) & Prakriti (Materi), Tri Pramana', color: 'border-amber-500', icon: '☯️', key:'samkhya' },
+                            { title: 'Yoga Darsana', rsi: 'Maharsi Patanjali', kitab: 'Yoga Sutra', focal: 'Praktik Meditasi & Astangga Yoga (8 Tahap Penyelarasan Jiwa)', color: 'border-purple-500', icon: '🧘‍♂️', key:'yoga' },
+                            { title: 'Mimamsa Darsana', rsi: 'Maharsi Jaimini', kitab: 'Mimamsa Sutra', focal: 'Ritual Yajna, Penafsiran Mantra Veda, Dharma', color: 'border-rose-500', icon: '🔥', key:'mimamsa' },
+                            { title: 'Vedanta Darsana', rsi: 'Maharsi Vyasa / Badarayana', kitab: 'Brahma Sutra', focal: 'Filsafat Advaita (Shankara), Vishishtadvaita, Dvaita', color: 'border-indigo-500', icon: '🕉️', key:'vedanta' }
+                        ].map(item => `
+                            <div class="glass-card p-5 rounded-2xl border-t-4 ${item.color} flex flex-col justify-between hover:shadow-xl transition">
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-2xl">${item.icon}</span>
+                                        <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">Astika</span>
+                                    </div>
+                                    <h4 class="font-bold text-slate-800 dark:text-white text-base">${item.title}</h4>
+                                    <p class="text-xs text-saffron-600 dark:text-saffron-400 font-medium mt-0.5">Pendiri: ${item.rsi}</p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Kitab: <i>${item.kitab}</i></p>
+                                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 line-clamp-3">${item.focal}</p>
+                                </div>
+                                <button onclick="openMateriDetail('${item.key}')" class="mt-4 w-full py-2 bg-slate-100 dark:bg-slate-800 hover:bg-saffron-600 hover:text-white text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl transition">
+                                    Lihat Detail Ajaran
+                                </button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `,
+            nastika: `
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-3xl">
+                        <h3 class="text-xl font-bold text-rose-600 dark:text-rose-400 mb-2">Nastika: 3 Aliran Non-Veda</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300">Kelompok aliran filsafat yang tidak menerima otoritas mutlak Veda (Nawa Darsana mencakup 6 Astika + 3 Nastika).</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="glass-card p-5 rounded-2xl border-t-4 border-red-500">
+                            <span class="text-2xl">🍖</span>
+                            <h4 class="font-bold text-slate-800 dark:text-white text-base mt-2">Carwaka (Lokayata)</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Tokoh: Brhaspati</p>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Materialisme murni. Hanya mengakui pengamatan langsung (Pratyaksa).</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-2xl border-t-4 border-amber-500">
+                            <span class="text-2xl">🖐️</span>
+                            <h4 class="font-bold text-slate-800 dark:text-white text-base mt-2">Jaina Darsana</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Tokoh: Mahavira Vardhamana</p>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Menekankan Ahimsa (tanpa kekerasan mutlak) dan Anekantavada.</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-2xl border-t-4 border-yellow-500">
+                            <span class="text-2xl">☸️</span>
+                            <h4 class="font-bold text-slate-800 dark:text-white text-base mt-2">Buddha Darsana</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Tokoh: Siddhartha Gautama</p>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Catur Arya Satya & Asta Arya Marga menuju Nirvana.</p>
+                        </div>
+                    </div>
+                </div>
+            `,
+            abad21: `
+                <div class="glass-card p-6 rounded-3xl space-y-4">
+                    <h3 class="text-xl font-bold text-saffron-600 dark:text-saffron-400">Relevansi Darsana dalam Abad 21 & Keterampilan 4C</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-2">
+                        <div class="bg-blue-50 dark:bg-slate-900 p-4 rounded-2xl border border-blue-200 dark:border-blue-900">
+                            <h4 class="font-bold text-blue-800 dark:text-blue-300 text-sm">1. Critical Thinking (Nyaya)</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Menguji informasi hoaks dengan Catur Pramana.</p>
+                        </div>
+                        <div class="bg-emerald-50 dark:bg-slate-900 p-4 rounded-2xl border border-emerald-200 dark:border-emerald-900">
+                            <h4 class="font-bold text-emerald-800 dark:text-emerald-300 text-sm">2. Creativity & Science (Vaisesika)</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Konsep fisika atom modern berdasarkan studi Padartha.</p>
+                        </div>
+                        <div class="bg-purple-50 dark:bg-slate-900 p-4 rounded-2xl border border-purple-200 dark:border-purple-900">
+                            <h4 class="font-bold text-purple-800 dark:text-purple-300 text-sm">3. Collaboration & Health (Yoga)</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Menjaga kesehatan mental & emosi via Astangga Yoga.</p>
+                        </div>
+                        <div class="bg-indigo-50 dark:bg-slate-900 p-4 rounded-2xl border border-indigo-200 dark:border-indigo-900">
+                            <h4 class="font-bold text-indigo-800 dark:text-indigo-300 text-sm">4. Communication & Ethics (Vedanta)</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Vasudhaiva Kutumbakam - Dunia adalah Satu Keluarga.</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        };
+
+        /* ================= DATA WAHANA LATIHAN ================= */
+        const dragDropData = [
+            { id: 1, text: "Catur Pramana", target: "nyaya" },
+            { id: 2, text: "Maharsi Gautama", target: "nyaya" },
+            { id: 3, text: "7 Padartha & Atom", target: "vaisesika" },
+            { id: 4, text: "Maharsi Kanada", target: "vaisesika" },
+            { id: 5, text: "Purusa & Prakriti", target: "samkhya" },
+            { id: 6, text: "Tri Pramana", target: "samkhya" },
+            { id: 7, text: "Astangga Yoga", target: "yoga" },
+            { id: 8, text: "Maharsi Patanjali", target: "yoga" },
+            { id: 9, text: "Maharsi Jaimini (Yajna)", target: "mimamsa" },
+            { id: 10, text: "Advaita Vedanta (Shankara)", target: "vedanta" }
+        ];
+
+        const matchPairData = [
+            { id: 1, left: "Pratyaksa Pramana", right: "Pengamatan langsung menggunakan panca indra", correctId: 1 },
+            { id: 2, left: "Anumana Pramana", right: "Penyimpulan berdasarkan tanda-tanda atau logika", correctId: 2 },
+            { id: 3, left: "Upamana Pramana", right: "Pengenalan melalui perbandingan / analogi", correctId: 3 },
+            { id: 4, left: "Sabda Pramana", right: "Kesaksian dari kitab suci atau otoritas bijak", correctId: 4 },
+            { id: 5, left: "Purusa", right: "Kesadaran murni / Roh sejati yang abadi", correctId: 5 },
+            { id: 6, left: "Prakriti", right: "Materi asal / Alam semesta yang selalu berubah", correctId: 6 },
+            { id: 7, left: "Yama", right: "Pengendalian diri lahiriah (Ahimsa, Satya, dll)", correctId: 7 },
+            { id: 8, left: "Niyama", right: "Disiplin batin/rohani pribadi (Sauca, Santosa)", correctId: 8 },
+            { id: 9, left: "Paramanu", right: "Partikel bagian terkecil penyusun materi (Atom)", correctId: 9 },
+            { id: 10, left: "Moksha", right: "Kebebasan tertinggi dari lingkaran Samsara", correctId: 10 }
+        ];
+
+        const ttsData = {
+            across: [
+                { num: 1, answer: "NYAYA", row: 0, col: 0, clue: "1. Aliran yang mengutamakan sistem logika dan Catur Pramana (Mendatar)" },
+                { num: 3, answer: "YOGA", row: 2, col: 2, clue: "3. Ajaran pengendalian pikiran karya Patanjali (Mendatar)" },
+                { num: 5, answer: "GAUTAMA", row: 4, col: 1, clue: "5. Maharsi pendiri Nyaya Darsana (Mendatar)" },
+                { num: 7, answer: "SATYA", row: 6, col: 4, clue: "7. Kebenaran / kejujuran dalam ajaran Yama (Mendatar)" },
+                { num: 9, answer: "ASTIKA", row: 8, col: 0, clue: "9. Kelompok 6 aliran Darsana yang mengakui Veda (Mendatar)" }
+            ],
+            down: [
+                { num: 2, answer: "SAMKHYA", row: 0, col: 4, clue: "2. Darsana dualistis Purusa dan Prakriti (Menurun)" },
+                { num: 4, answer: "KANADA", row: 2, col: 7, clue: "4. Maharsi pendiri Vaisesika Darsana (Menurun)" },
+                { num: 6, answer: "VEDANTA", row: 3, col: 2, clue: "6. Darsana puncak Veda / Uttara Mimamsa (Menurun)" },
+                { num: 8, answer: "AHIMSA", row: 5, col: 9, clue: "8. Prinsip tidak membunuh/menyakiti (Menurun)" },
+                { num: 10, answer: "JAIMINI", row: 3, col: 0, clue: "10. Pendiri aliran Purva Mimamsa (Menurun)" }
+            ]
+        };
+
+        const wheelQuestions = [
+            { q: "Siapakah Maharsi yang menyusun ajaran Astangga Yoga dalam Yoga Sutra?", options: ["Maharsi Patanjali", "Maharsi Gautama", "Maharsi Kapila", "Maharsi Vyasa"], ans: 0 },
+            { q: "Konsep 7 Padartha (Kategori Realitas) dibahas secara mendalam pada Darsana...", options: ["Nyaya", "Vaisesika", "Samkhya", "Mimamsa"], ans: 1 },
+            { q: "Dua azas realitas dalam Samkhya Darsana adalah...", options: ["Brahman & Atman", "Purusa & Prakriti", "Yama & Niyama", "Dharma & Adharma"], ans: 1 },
+            { q: "Pengamatan langsung menggunakan alat indra disebut...", options: ["Anumana", "Sabda", "Pratyaksa", "Upamana"], ans: 2 },
+            { q: "Kelompok Darsana yang TIDAK mengakui otoritas Veda disebut...", options: ["Astika", "Nastika", "Vedanta", "Sutra"], ans: 1 }
+        ];
+
+        /* ================= 20 SOAL KUIS EVALUASI LENGKAP ================= */
+        const quizData = [
+            { id: 1, q: "1. Kata 'Darsana' berasal dari akar kata 'Drs' yang bermakna...", options: ["Mendengar", "Melihat / Memandang", "Merasakan", "Menulis"], ans: 1, exp: "Drs bermakna melihat atau pandangan filosofis terhadap kebenaran mutlak." },
+            { id: 2, q: "2. Kelompok filsafat Hindu yang mengakui otoritas mutlak kitab suci Veda disebut...", options: ["Nastika", "Astika", "Carwaka", "Jaina"], ans: 1, exp: "Astika adalah 6 aliran filsafat orthodox penemu kebenaran Veda." },
+            { id: 3, q: "3. Pendiri Nyaya Darsana yang dikenal sebagai pelopor sistem logika Hindu adalah...", options: ["Maharsi Gautama", "Maharsi Kanada", "Maharsi Kapila", "Maharsi Jaimini"], ans: 0, exp: "Maharsi Gautama menyusun Nyaya Sutra." },
+            { id: 4, q: "4. Pengamatan langsung melalui Panca Indra dinamakan...", options: ["Anumana Pramana", "Pratyaksa Pramana", "Upamana Pramana", "Sabda Pramana"], ans: 1, exp: "Pratyaksa adalah persepsi indrawi secara langsung." },
+            { id: 5, q: "5. Menarik kesimpulan berdasarkan tanda-tanda logis (seperti ada asap menandakan ada api) dinamakan...", options: ["Pratyaksa", "Anumana", "Upamana", "Sabda"], ans: 1, exp: "Anumana adalah kesimpulan inferensial/logis." },
+            { id: 6, q: "6. Vaisesika Darsana dipelopori oleh Maharsi Kanada yang mengajarkan teori...", options: ["Tri Guna", "Paramanu (Atom)", "Astangga Yoga", "Advaita"], ans: 1, exp: "Maharsi Kanada merumuskan teori unsur atom terkecil (Paramanu)." },
+            { id: 7, q: "7. Kategori realitas (Padartha) dalam Vaisesika Darsana berjumlah...", options: ["3 Padartha", "5 Padartha", "7 Padartha", "9 Padartha"], ans: 2, exp: "7 Padartha meliputi Dravya, Guna, Karma, Samanya, Visesa, Samavaya, & Abhava." },
+            { id: 8, q: "8. Pendiri filsafat Samkhya yang mengajarkan dualisme adalah...", options: ["Maharsi Patanjali", "Maharsi Kapila", "Maharsi Vyasa", "Maharsi Badarayana"], ans: 1, exp: "Maharsi Kapila menyusun ajaran Samkhya Sutra." },
+            { id: 9, q: "9. Unsur kesadaran murni atau rohani yang abadi dalam Samkhya dinamakan...", options: ["Prakriti", "Purusa", "Mahat", "Ahamkara"], ans: 1, exp: "Purusa adalah Aspek Rohani Murni, sedangkan Prakriti adalah Aspek Materi." },
+            { id: 10, q: "10. Tiga sifat alam (Tri Guna) yang memengaruhi Prakriti adalah...", options: ["Sattwam, Rajas, Tamas", "Ananda, Cit, Sat", "Yama, Niyama, Asana", "Pratyaksa, Anumana, Sabda"], ans: 0, exp: "Tri Guna terdiri atas Sattwam (Ketenangan), Rajas (Aktivitas), dan Tamas (Inersia)." },
+            { id: 11, q: "11. Kitab utama penyusun ajaran Yoga Darsana adalah Yoga Sutra karya...", options: ["Maharsi Patanjali", "Maharsi Gautama", "Maharsi Jaimini", "Shankaracharya"], ans: 0, exp: "Maharsi Patanjali mengkodifikasikan ajaran Yoga." },
+            { id: 12, q: "12. Tahap paling awal dalam 8 tahapan Astangga Yoga adalah...", options: ["Niyama", "Asana", "Yama", "Pranayama"], ans: 2, exp: "Urutan: Yama, Niyama, Asana, Pranayama, Pratyahara, Dharana, Dhyana, Samadhi." },
+            { id: 13, q: "13. Pengaturan dan pengendalian nafas dalam Astangga Yoga disebut...", options: ["Asana", "Pranayama", "Pratyahara", "Dharana"], ans: 1, exp: "Pranayama adalah teknik penguasaan nafas vital." },
+            { id: 14, q: "14. Purva Mimamsa berfokus pada penafsiran bagian Veda yang berhubungan dengan...", options: ["Jñana (Pengetahuan)", "Yajna & Ritual", "Bhakti (Cinta Kasih)", "Yoga (Meditasi)"], ans: 1, exp: "Mimamsa berfokus pada ritual Veda dan pelaksanaan Yajna." },
+            { id: 15, q: "15. Tokoh utama pengembang filsafat Advaita Vedanta (Non-dualisme) adalah...", options: ["Sri Ramanuja", "Sri Madhvacharya", "Adi Shankaracharya", "Maharsi Kapila"], ans: 2, exp: "Adi Shankaracharya mengajarkan bahwa Brahman dan Atman adalah Tunggal." },
+            { id: 16, q: "16. Tiga aliran yang tergolong Nastika (tidak mengakui Veda) dalam Nawa Darsana adalah...", options: ["Nyaya, Vaisesika, Yoga", "Carwaka, Jaina, Buddha", "Samkhya, Mimamsa, Vedanta", "Yoga, Mimamsa, Buddha"], ans: 1, exp: "Nawa Darsana = 6 Astika + 3 Nastika (Carwaka, Jaina, Buddha)." },
+            { id: 17, q: "17. Aliran Carwaka hanya mengakui satu-satunya metode pengetahuan benar (Pramana), yaitu...", options: ["Pratyaksa (Pengamatan Langsung)", "Anumana (Inferensi)", "Sabda (Wahyu)", "Upamana (Analogi)"], ans: 0, exp: "Carwaka adalah materialisme murni yang menolak hal abstrak non-indrawi." },
+            { id: 18, q: "18. Ajaran Ahimsa (pantang menyakiti mahluk hidup secara mutlak) sangat ditekankan oleh...", options: ["Jaina Darsana", "Nyaya Darsana", "Carwaka Darsana", "Mimamsa Darsana"], ans: 0, exp: "Jaina Darsana menjunjung tinggi Ahimsa Paramo Dharma." },
+            { id: 19, q: "19. Menghadapi berita hoaks di era digital abad 21 dapat diatasi dengan menerapkan prinsip Catur Pramana dari Darsana...", options: ["Yoga", "Nyaya", "Mimamsa", "Carwaka"], ans: 1, exp: "Sistem logika Nyaya mendidik kita bertindak kritis meneliti kebenaran bukti." },
+            { id: 20, q: "20. Puncak pencapaian tertinggi penyatuan jiwa dalam Yoga Darsana adalah...", options: ["Dharana", "Dhyana", "Samadhi", "Asana"], ans: 2, exp: "Samadhi adalah kondisi penyatuan manunggal jiwatman dengan Brahman." }
+        ];
+
+        /* ================= RENDER KUIS 20 SOAL ================= */
+        function renderQuizQuestions() {
+            const container = document.getElementById('quizQuestionsContainer');
+            container.innerHTML = quizData.map((qItem, idx) => `
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm" id="quiz-card-${qItem.id}">
+                    <p class="font-bold text-slate-800 dark:text-white text-sm sm:text-base leading-relaxed mb-3">${qItem.q}</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        ${qItem.options.map((opt, optIdx) => `
+                            <button type="button" onclick="selectQuizAnswer(${qItem.id}, ${optIdx})" id="q-opt-${qItem.id}-${optIdx}" class="quiz-opt-btn-${qItem.id} text-left p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 hover:bg-saffron-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm transition flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full border border-slate-400 dark:border-slate-600 flex items-center justify-center text-[10px] font-bold uppercase shrink-0">
+                                    ${String.fromCharCode(65 + optIdx)}
+                                </span>
+                                <span>${opt}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectQuizAnswer(qId, optIdx) {
+            state.quizAnswers[qId] = optIdx;
+            
+            // Highlight selected button
+            document.querySelectorAll(`.quiz-opt-btn-${qId}`).forEach((btn, i) => {
+                if (i === optIdx) {
+                    btn.classList.add('bg-saffron-600', 'text-white', 'border-saffron-600');
+                    btn.classList.remove('bg-slate-50', 'dark:bg-slate-800/60', 'text-slate-700', 'dark:text-slate-200');
+                } else {
+                    btn.classList.remove('bg-saffron-600', 'text-white', 'border-saffron-600');
+                    btn.classList.add('bg-slate-50', 'dark:bg-slate-800/60', 'text-slate-700', 'dark:text-slate-200');
+                }
+            });
+
+            document.getElementById('quizAnsweredCount').innerText = Object.keys(state.quizAnswers).length;
+        }
+
+        function submitQuiz() {
+            const answeredCount = Object.keys(state.quizAnswers).length;
+            if (answeredCount < 20) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 20 soal. Yakin ingin menyelesaikan dan mengirim jawaban sekarang?`)) {
+                    return;
+                }
+            }
+
+            let correctCount = 0;
+            quizData.forEach(q => {
+                if (state.quizAnswers[q.id] === q.ans) {
+                    correctCount++;
+                }
+            });
+
+            state.scoreQuiz = correctCount * 10; // 20 soal x 10 = Max 200 PTS
+            state.hasDoneQuiz = true;
+
+            document.getElementById('statQuizScore').innerHTML = `${state.scoreQuiz} <span class="text-xs font-normal text-slate-400">/ 200</span>`;
+            updateUI();
+
+            // Display Results & Explanations
+            const resultSection = document.getElementById('quizResultSection');
+            resultSection.classList.remove('hidden');
+
+            resultSection.innerHTML = `
+                <div class="text-center space-y-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+                    <span class="text-4xl">🎓</span>
+                    <h3 class="text-2xl font-black text-slate-800 dark:text-white">Hasil Kuis Evaluasi (${state.studentName} - ${state.studentClass})</h3>
+                    <p class="text-lg font-bold text-saffron-600 dark:text-saffron-400">Skor Kamu: ${state.scoreQuiz} / 200 PTS (Benar: ${correctCount} dari 20 Soal)</p>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="font-bold text-slate-800 dark:text-white text-base">Pembahasan Lengkap 20 Soal:</h4>
+                    ${quizData.map((q, idx) => {
+                        const userAns = state.quizAnswers[q.id];
+                        const isCorrect = userAns === q.ans;
+                        return `
+                            <div class="p-4 rounded-2xl border ${isCorrect ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800' : 'bg-rose-50 dark:bg-rose-950/40 border-rose-300 dark:border-rose-800'} text-xs space-y-1.5">
+                                <p class="font-bold text-slate-800 dark:text-white text-sm">${q.q}</p>
+                                <p class="${isCorrect ? 'text-emerald-700 dark:text-emerald-300' : 'text-rose-700 dark:text-rose-300'} font-semibold">
+                                    Jawaban Anda: ${userAns !== undefined ? String.fromCharCode(65 + userAns) + '. ' + q.options[userAns] : 'Belum Dijawab'} ${isCorrect ? '✓ (Benar)' : '✗ (Salah)'}
+                                </p>
+                                ${!isCorrect ? `<p class="text-emerald-700 dark:text-emerald-400 font-bold">Kunci Jawaban Tepat: ${String.fromCharCode(65 + q.ans)}. ${q.options[q.ans]}</p>` : ''}
+                                <p class="text-slate-600 dark:text-slate-400 italic pt-1 border-t border-slate-200/50 dark:border-slate-800/50">
+                                    <strong>Pembahasan:</strong> ${q.exp}
+                                </p>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+
+            resultSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* ================= NAVIGATION & THEME LOGIC ================= */
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function switchTab(tabId) {
+            const pages = ['beranda', 'materi', 'latihan', 'kuis', 'pencapaian'];
+            pages.forEach(p => {
+                const el = document.getElementById(`page-${p}`);
+                const nav = document.getElementById(`nav-${p}`);
+                if (p === tabId) {
+                    el.classList.remove('hidden');
+                    nav.classList.add('text-saffron-600', 'dark:text-saffron-400', 'font-bold');
+                    nav.classList.remove('text-slate-500', 'dark:text-slate-400');
+                } else {
+                    el.classList.add('hidden');
+                    nav.classList.remove('text-saffron-600', 'dark:text-saffron-400', 'font-bold');
+                    nav.classList.add('text-slate-500', 'dark:text-slate-400');
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateMascotHomeSpeech(text) {
+            const el = document.getElementById('mascotHomeText');
+            if (el) el.innerText = text;
+        }
+
+        /* ================= SCORE & TITLE CALCULATOR ================= */
+        function getTotalPoints() {
+            return state.scoreDragDrop + state.scoreMatchPair + state.scoreTTS + state.scoreWheel + state.scoreQuiz;
+        }
+
+        function getTitleByPoints(pts) {
+            if (pts <= 100) return { title: "🔰 Sisya Jiwatman", rank: "Penjelajah Kebenaran Awal", icon: "🔰", desc: "Anda baru memulai perjalanan mulia mempelajari kebenaran Darsana." };
+            if (pts <= 250) return { title: "🔱 Jñana Sadhaka", rank: "Penuntut Ilmu Rohani", icon: "🔱", desc: "Anda telah menguasai dasar-dasar konsep logika Darsana." };
+            if (pts <= 400) return { title: "☸️ Tarka Wicaksana", rank: "Pencari Logika Kebenaran", icon: "☸️", desc: "Anda mampu mengkritisi dan menghubungkan realitas dengan Catur Pramana." };
+            if (pts <= 520) return { title: "🕉️ Sad Darsana Mahaguru", rank: "Penguasai 6 Aliran Veda", icon: "🕉️", desc: "Pengetahuan Anda tentang Sad Darsana dan Nawa Darsana sungguh mendalam!" };
+            return { title: "🌌 Paramatman Samadhi Master", rank: "Mencapai Keheningan Nirwana", icon: "🌌", desc: "Selamat! Anda mencapai puncak pemahaman spiritual tertinggi!" };
+        }
+
+        function updateUI() {
+            const total = getTotalPoints();
+            const info = getTitleByPoints(total);
+
+            document.getElementById('headerUserPoints').innerText = `${total} PTS`;
+            document.getElementById('statPoints').innerHTML = `${total} <span class="text-xs font-normal text-slate-400">/ 600</span>`;
+            document.getElementById('statTitle').innerText = info.title;
+
+            let countGames = 0;
+            if (state.hasDoneDragDrop) countGames++;
+            if (state.hasDoneMatchPair) countGames++;
+            if (state.hasDoneTTS) countGames++;
+            if (state.hasDoneWheel) countGames++;
+            document.getElementById('statGamesDone').innerText = countGames;
+
+            document.getElementById('achievementTitleName').innerText = info.title;
+            document.getElementById('achievementTitleDesc').innerText = `${info.rank}: ${info.desc}`;
+            document.getElementById('achievementIcon').innerText = info.icon;
+            document.getElementById('achievementPointsNum').innerText = total;
+            document.getElementById('achievementProgressBar').style.width = `${Math.min(100, (total / 600) * 100)}%`;
+
+            renderTitlesRoadmap(total);
+            renderTrophyBadges();
+        }
+
+        function renderTitlesRoadmap(currentPts) {
+            const titles = [
+                { min: 0, max: 100, name: "🔰 Sisya Jiwatman", desc: "Penjelajah Kebenaran Awal" },
+                { min: 101, max: 250, name: "🔱 Jñana Sadhaka", desc: "Penuntut Ilmu Rohani" },
+                { min: 251, max: 400, name: "☸️ Tarka Wicaksana", desc: "Pencari Logika Kebenaran" },
+                { min: 401, max: 520, name: "🕉️ Sad Darsana Mahaguru", desc: "Penguasai 6 Aliran Veda" },
+                { min: 521, max: 600, name: "🌌 Paramatman Samadhi Master", desc: "Mencapai Keheningan Nirwana" }
+            ];
+
+            document.getElementById('titlesListGrid').innerHTML = titles.map(t => {
+                const isActive = currentPts >= t.min && currentPts <= t.max;
+                const isPassed = currentPts > t.max;
+                return `
+                    <div class="p-4 rounded-2xl border ${isActive ? 'bg-amber-50 dark:bg-slate-900 border-saffron-500 ring-2 ring-saffron-500/30' : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 opacity-70'}">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold text-saffron-600 dark:text-saffron-400">${t.min} - ${t.max} PTS</span>
+                            ${isPassed ? '<span class="text-emerald-500 font-bold text-xs">✓ Terlampaui</span>' : (isActive ? '<span class="text-xs font-bold bg-saffron-500 text-white px-2 py-0.5 rounded-full">Aktif</span>' : '')}
+                        </div>
+                        <h4 class="font-bold text-slate-800 dark:text-white text-sm">${t.name}</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${t.desc}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderTrophyBadges() {
+            const badges = [
+                { name: "Drag Master", desc: "Selesaikan Drag & Drop", done: state.hasDoneDragDrop, icon: "📦" },
+                { name: "Pair Matcher", desc: "Selesaikan Match Pair", done: state.hasDoneMatchPair, icon: "🔗" },
+                { name: "Puzzle Solver", desc: "Selesaikan TTS Darsana", done: state.hasDoneTTS, icon: "🧩" },
+                { name: "Lucky Spinner", desc: "Selesaikan Roda Putar", done: state.hasDoneWheel, icon: "🎡" },
+                { name: "Kuis Champion", desc: "Selesaikan Kuis Evaluasi", done: state.hasDoneQuiz, icon: "🎓" }
+            ];
+
+            document.getElementById('badgeRoomGrid').innerHTML = badges.map(b => `
+                <div class="p-4 rounded-2xl text-center border ${b.done ? 'bg-amber-50 dark:bg-slate-900 border-saffron-400 shadow-md' : 'bg-slate-100 dark:bg-slate-900 border-slate-200 dark:border-slate-800 grayscale opacity-50'}">
+                    <div class="text-3xl mb-2">${b.icon}</div>
+                    <h5 class="font-bold text-slate-800 dark:text-white text-xs">${b.name}</h5>
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">${b.desc}</p>
+                    <span class="inline-block mt-2 text-[9px] font-bold px-2 py-0.5 rounded-full ${b.done ? 'bg-saffron-500 text-white' : 'bg-slate-300 dark:bg-slate-700 text-slate-600'}">
+                        ${b.done ? 'Terbuka' : 'Terkunci'}
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        /* ================= MATERI CONTROLLER ================= */
+        function filterMateri(type) {
+            document.querySelectorAll('.materi-tab-btn').forEach(b => {
+                b.classList.remove('bg-saffron-600', 'text-white');
+                b.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            });
+            if (event) {
+                event.target.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                event.target.classList.add('bg-saffron-600', 'text-white');
+            }
+            document.getElementById('materiContentContainer').innerHTML = materiData[type];
+        }
+
+        function openMateriDetail(key) {
+            const modal = document.getElementById('detailModal');
+            const content = document.getElementById('modalContent');
+
+            const details = {
+                nyaya: { title: "⚖️ Nyaya Darsana", rsi: "Maharsi Gautama", text: "Mengajarkan sistem logika ilmiah. Menggunakan Catur Pramana: Pratyaksa, Anumana, Upamana, dan Sabda." },
+                vaisesika: { title: "⚛️ Vaisesika Darsana", rsi: "Maharsi Kanada", text: "Filsafat atomistik. Alam semesta terbentuk dari atom (Paramanu) melalui 7 Padartha (Kategori)." },
+                samkhya: { title: "☯️ Samkhya Darsana", rsi: "Maharsi Kapila", text: "Dualisme kosmis antara Purusa (Kesadaran Murni) dan Prakriti (Materi Asal)." },
+                yoga: { title: "🧘‍♂️ Yoga Darsana", rsi: "Maharsi Patanjali", text: "Pengendalian gelombang pikiran (Citta Vritti Nirodha) via Astangga Yoga." },
+                mimamsa: { title: "🔥 Mimamsa Darsana", rsi: "Maharsi Jaimini", text: "Fokus pada kewajiban ritual (Dharma) dan efektivitas mantra Veda." },
+                vedanta: { title: "🕉️ Vedanta Darsana", rsi: "Maharsi Vyasa", text: "Puncak ajaran Veda berdasarkan Upanisad (Brahman, Atman, Maya)." }
+            };
+
+            const data = details[key];
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-saffron-600 dark:text-saffron-400">${data.title}</h3>
+                    <p class="text-xs font-bold text-slate-500">Pelopor: ${data.rsi}</p>
+                    <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">${data.text}</p>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').classList.add('hidden');
+        }
+
+        /* ================= WAHANA LATIHAN CONTROLLER ================= */
+        function switchWahana(type) {
+            ['dragdrop', 'tarikgaris', 'tts', 'wheel'].forEach(w => {
+                const el = document.getElementById(`wahana-${w}`);
+                const btn = document.getElementById(`tab-wahana-${w}`);
+                if (w === type) {
+                    el.classList.remove('hidden');
+                    btn.classList.add('bg-saffron-600', 'text-white');
+                    btn.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                } else {
+                    el.classList.add('hidden');
+                    btn.classList.remove('bg-saffron-600', 'text-white');
+                    btn.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                }
+            });
+        }
+
+        /* WAHANA 1: DRAG & DROP LOGIC */
+        function initDragDrop() {
+            const pool = document.getElementById('dragItemsPool');
+            const targetsContainer = document.getElementById('dragDropTargets');
+
+            pool.innerHTML = dragDropData.map(item => `
+                <div id="drag-item-${item.id}" onclick="clickSelectItem(${item.id})" class="px-3 py-2 bg-white dark:bg-slate-800 border border-saffron-300 dark:border-slate-700 rounded-xl text-xs font-semibold shadow-sm cursor-pointer hover:bg-saffron-50 transition">
+                    📌 ${item.text}
+                </div>
+            `).join('');
+
+            const darsanas = [
+                { key: 'nyaya', name: 'Nyaya' },
+                { key: 'vaisesika', name: 'Vaisesika' },
+                { key: 'samkhya', name: 'Samkhya' },
+                { key: 'yoga', name: 'Yoga' },
+                { key: 'mimamsa', name: 'Mimamsa' },
+                { key: 'vedanta', name: 'Vedanta' }
+            ];
+
+            targetsContainer.innerHTML = darsanas.map(d => `
+                <div onclick="clickDropToTarget('${d.key}')" class="bg-slate-50 dark:bg-slate-900 border-2 border-dashed border-slate-300 dark:border-slate-700 p-4 rounded-2xl min-h-[120px] flex flex-col justify-between cursor-pointer">
+                    <h4 class="font-bold text-slate-700 dark:text-slate-200 text-xs uppercase tracking-wider mb-2 flex items-center justify-between">
+                        <span>${d.name}</span>
+                        <span id="count-${d.key}" class="text-[10px] bg-saffron-100 dark:bg-slate-800 text-saffron-700 dark:text-saffron-300 px-2 py-0.5 rounded-full font-bold">0</span>
+                    </h4>
+                    <div id="target-box-${d.key}" class="space-y-1.5 flex-grow"></div>
+                </div>
+            `).join('');
+        }
+
+        let selectedDragItemId = null;
+        function clickSelectItem(id) {
+            selectedDragItemId = id;
+            dragDropData.forEach(item => {
+                const el = document.getElementById(`drag-item-${item.id}`);
+                if (el) {
+                    if (item.id === id) {
+                        el.classList.add('ring-2', 'ring-saffron-500', 'bg-saffron-100');
+                    } else {
+                        el.classList.remove('ring-2', 'ring-saffron-500', 'bg-saffron-100');
+                    }
+                }
+            });
+        }
+
+        function clickDropToTarget(targetKey) {
+            if (!selectedDragItemId) return;
+            
+            // Remove from other assignments
+            Object.keys(state.dragAssignments).forEach(k => {
+                state.dragAssignments[k] = state.dragAssignments[k].filter(id => id !== selectedDragItemId);
+            });
+
+            state.dragAssignments[targetKey].push(selectedDragItemId);
+            
+            // Hide from pool
+            const el = document.getElementById(`drag-item-${selectedDragItemId}`);
+            if (el) el.classList.add('hidden');
+
+            renderDragTargets();
+            selectedDragItemId = null;
+        }
+
+        function renderDragTargets() {
+            Object.keys(state.dragAssignments).forEach(k => {
+                const box = document.getElementById(`target-box-${k}`);
+                const count = document.getElementById(`count-${k}`);
+                const items = state.dragAssignments[k];
+                count.innerText = items.length;
+
+                box.innerHTML = items.map(id => {
+                    const found = dragDropData.find(d => d.id === id);
+                    return `
+                        <div class="text-[11px] bg-saffron-500 text-white font-semibold px-2.5 py-1 rounded-lg flex items-center justify-between">
+                            <span>${found.text}</span>
+                            <button onclick="event.stopPropagation(); removeDragItem(${id})" class="text-xs font-bold hover:text-red-200 ml-1">✕</button>
+                        </div>
+                    `;
+                }).join('');
+            });
+        }
+
+        function removeDragItem(id) {
+            Object.keys(state.dragAssignments).forEach(k => {
+                state.dragAssignments[k] = state.dragAssignments[k].filter(i => i !== id);
+            });
+            const el = document.getElementById(`drag-item-${id}`);
+            if (el) {
+                el.classList.remove('hidden', 'ring-2', 'ring-saffron-500', 'bg-saffron-100');
+            }
+            renderDragTargets();
+        }
+
+        function submitDragDrop() {
+            let score = 0;
+            dragDropData.forEach(item => {
+                const assignedKey = Object.keys(state.dragAssignments).find(k => state.dragAssignments[k].includes(item.id));
+                if (assignedKey === item.target) {
+                    score += 10;
+                }
+            });
+
+            state.scoreDragDrop = score;
+            state.hasDoneDragDrop = true;
+            updateUI();
+
+            const res = document.getElementById('dragDropResult');
+            res.classList.remove('hidden');
+            res.innerHTML = `
+                <h4 class="font-bold text-slate-800 dark:text-white text-sm">Hasil Wahana Drag & Drop</h4>
+                <p class="text-xs font-semibold text-saffron-600 dark:text-saffron-400 mt-1">Skor Kamu: ${score} / 100 PTS</p>
+                <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">Bagus sekali! Pengelompokan membantu memahami karakteristik tiap Darsana secara mendalam.</p>
+            `;
+        }
+
+        /* WAHANA 2: MATCH PAIR LOGIC */
+        function initMatchPair() {
+            const leftBox = document.getElementById('matchPairLeft');
+            const rightBox = document.getElementById('matchPairRight');
+
+            leftBox.innerHTML = matchPairData.map(item => `
+                <button onclick="selectMatchLeft(${item.id})" id="match-left-${item.id}" class="w-full text-left p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-white transition hover:border-emerald-500">
+                    🔹 ${item.left}
+                </button>
+            `).join('');
+
+            // Shuffle right items
+            const shuffled = [...matchPairData].sort(() => Math.random() - 0.5);
+            rightBox.innerHTML = shuffled.map(item => `
+                <button onclick="selectMatchRight(${item.id})" id="match-right-${item.id}" class="w-full text-left p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 text-xs font-medium text-slate-600 dark:text-slate-300 transition hover:border-emerald-500">
+                    🔸 ${item.right}
+                </button>
+            `).join('');
+        }
+
+        function selectMatchLeft(id) {
+            state.selectedLeftId = id;
+            matchPairData.forEach(item => {
+                const el = document.getElementById(`match-left-${item.id}`);
+                if (item.id === id) {
+                    el.classList.add('ring-2', 'ring-emerald-500', 'bg-emerald-50');
+                } else {
+                    el.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-50');
+                }
+            });
+        }
+
+        function selectMatchRight(rightId) {
+            if (!state.selectedLeftId) return;
+
+            state.matchSelections[state.selectedLeftId] = rightId;
+            
+            // Visual paired update
+            const leftEl = document.getElementById(`match-left-${state.selectedLeftId}`);
+            leftEl.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-50');
+            leftEl.classList.add('bg-emerald-600', 'text-white');
+
+            state.selectedLeftId = null;
+        }
+
+        function submitMatchPair() {
+            let score = 0;
+            matchPairData.forEach(item => {
+                if (state.matchSelections[item.id] === item.correctId) {
+                    score += 10;
+                }
+            });
+
+            state.scoreMatchPair = score;
+            state.hasDoneMatchPair = true;
+            updateUI();
+
+            const res = document.getElementById('matchPairResult');
+            res.classList.remove('hidden');
+            res.innerHTML = `
+                <h4 class="font-bold text-slate-800 dark:text-white text-sm">Hasil Wahana Match Pair</h4>
+                <p class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mt-1">Skor Kamu: ${score} / 100 PTS</p>
+            `;
+        }
+
+        /* WAHANA 3: TTS LOGIC */
+        function initTTS() {
+            const grid = document.getElementById('ttsGrid');
+            grid.innerHTML = '';
+
+            // Build 10x10 matrix
+            for (let r = 0; r < 10; r++) {
+                for (let c = 0; c < 10; c++) {
+                    const box = document.createElement('div');
+                    box.className = 'w-7 h-7 sm:w-8 sm:h-8 border border-slate-300 dark:border-slate-700 flex items-center justify-center font-bold text-xs bg-slate-200 dark:bg-slate-900 rounded-md relative';
+                    box.id = `cell-${r}-${c}`;
+                    grid.appendChild(box);
+                }
+            }
+
+            // Fill active TTS cells
+            const activeCells = {};
+            [...ttsData.across, ...ttsData.down].forEach(word => {
+                for (let i = 0; i < word.answer.length; i++) {
+                    const r = word.row + (word.clue.includes('Menurun') ? i : 0);
+                    const c = word.col + (word.clue.includes('Mendatar') ? i : 0);
+                    const key = `${r}-${c}`;
+                    if (!activeCells[key]) activeCells[key] = { ans: word.answer[i], num: (i === 0 ? word.num : null) };
+                    else if (i === 0) activeCells[key].num = word.num;
+                }
+            });
+
+            Object.keys(activeCells).forEach(key => {
+                const [r, c] = key.split('-');
+                const cell = document.getElementById(`cell-${r}-${c}`);
+                cell.className = 'w-7 h-7 sm:w-8 sm:h-8 border border-slate-400 dark:border-slate-600 flex items-center justify-center font-bold text-xs bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded-md relative shadow-sm';
+                
+                if (activeCells[key].num) {
+                    const numTag = document.createElement('span');
+                    numTag.className = 'absolute top-0.5 left-0.5 text-[8px] font-bold text-saffron-600';
+                    numTag.innerText = activeCells[key].num;
+                    cell.appendChild(numTag);
+                }
+
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.maxLength = 1;
+                input.className = 'w-full h-full text-center bg-transparent uppercase font-bold focus:outline-none focus:ring-1 focus:ring-saffron-500 text-xs';
+                input.oninput = (e) => { state.ttsUserGrid[key] = e.target.value.toUpperCase(); };
+                cell.appendChild(input);
+            });
+
+            // Render Clues
+            document.getElementById('ttsCluesAcross').innerHTML = ttsData.across.map(c => `<li>${c.clue}</li>`).join('');
+            document.getElementById('ttsCluesDown').innerHTML = ttsData.down.map(c => `<li>${c.clue}</li>`).join('');
+        }
+
+        function submitTTS() {
+            let correct = 0;
+            let total = 0;
+
+            [...ttsData.across, ...ttsData.down].forEach(word => {
+                total++;
+                let wordCorrect = true;
+                for (let i = 0; i < word.answer.length; i++) {
+                    const r = word.row + (word.clue.includes('Menurun') ? i : 0);
+                    const c = word.col + (word.clue.includes('Mendatar') ? i : 0);
+                    const key = `${r}-${c}`;
+                    if (state.ttsUserGrid[key] !== word.answer[i]) {
+                        wordCorrect = false;
+                    }
+                }
+                if (wordCorrect) correct++;
+            });
+
+            state.scoreTTS = Math.round((correct / total) * 100);
+            state.hasDoneTTS = true;
+            updateUI();
+
+            const res = document.getElementById('ttsResult');
+            res.classList.remove('hidden');
+            res.innerHTML = `
+                <h4 class="font-bold text-slate-800 dark:text-white text-sm">Hasil Wahana TTS Darsana</h4>
+                <p class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mt-1">Skor Kamu: ${state.scoreTTS} / 100 PTS</p>
+            `;
+        }
+
+        /* WAHANA 4: RODA PUTAR LOGIC */
+        function initWheel() {
+            const svg = document.getElementById('wheelSvg');
+            const colors = ['#f59e0b', '#10b981', '#6366f1', '#ec4899', '#8b5cf6'];
+            
+            let paths = '';
+            for (let i = 0; i < 5; i++) {
+                const a1 = i * 72;
+                const a2 = (i + 1) * 72;
+                const x1 = 100 + 95 * Math.cos(Math.PI * a1 / 180);
+                const y1 = 100 + 95 * Math.sin(Math.PI * a1 / 180);
+                const x2 = 100 + 95 * Math.cos(Math.PI * a2 / 180);
+                const y2 = 100 + 95 * Math.sin(Math.PI * a2 / 180);
+                paths += `<path d="M100,100 L${x1},${y1} A95,95 0 0,1 ${x2},${y2} Z" fill="${colors[i]}" />`;
+            }
+            svg.innerHTML = paths;
+        }
+
+        let currentWheelAngle = 0;
+        function spinWheel() {
+            if (state.wheelRoundsDone >= 5) {
+                alert("Anda telah menyelesaikan 5 putaran Roda Keberuntungan!");
+                return;
+            }
+
+            const extraRotations = 360 * 4 + Math.floor(Math.random() * 360);
+            currentWheelAngle += extraRotations;
+            
+            const svg = document.getElementById('wheelSvg');
+            svg.style.transform = `rotate(${currentWheelAngle}deg)`;
+
+            setTimeout(() => {
+                const qIndex = state.wheelRoundsDone % wheelQuestions.length;
+                const qData = wheelQuestions[qIndex];
+                
+                document.getElementById('wheelRoundCounter').innerText = state.wheelRoundsDone + 1;
+                document.getElementById('wheelTopicBadge').innerText = `Soal ${qIndex + 1}`;
+                
+                const qBox = document.getElementById('wheelQuestionBox');
+                qBox.innerHTML = `<p class="text-sm font-bold text-slate-800 dark:text-white">${qData.q}</p>`;
+
+                const optsBox = document.getElementById('wheelOptionsBox');
+                optsBox.classList.remove('hidden');
+                optsBox.innerHTML = qData.options.map((opt, i) => `
+                    <button onclick="answerWheelQuestion(${qIndex}, ${i})" class="w-full p-2.5 bg-white dark:bg-slate-800 hover:bg-saffron-50 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold text-left transition">
+                        ${String.fromCharCode(65 + i)}. ${opt}
+                    </button>
+                `).join('');
+
+            }, 4000);
+        }
+
+        function answerWheelQuestion(qIdx, selectedOpt) {
+            const isCorrect = selectedOpt === wheelQuestions[qIdx].ans;
+            if (isCorrect) state.scoreWheel += 20;
+
+            state.wheelRoundsDone++;
+            document.getElementById('wheelOptionsBox').classList.add('hidden');
+
+            if (state.wheelRoundsDone >= 5) {
+                state.hasDoneWheel = true;
+                updateUI();
+                const res = document.getElementById('wheelResult');
+                res.classList.remove('hidden');
+                res.innerHTML = `
+                    <h4 class="font-bold text-slate-800 dark:text-white text-sm">Hasil Wahana Roda Putar</h4>
+                    <p class="text-xs font-semibold text-purple-600 dark:text-purple-400 mt-1">Total Poin Roda: ${state.scoreWheel} / 100 PTS</p>
+                `;
+            } else {
+                document.getElementById('wheelQuestionBox').innerHTML = `<p class="text-xs text-slate-500">Putaran selesai! Klik "Putar Roda" untuk soal berikutnya.</p>`;
+            }
+        }
+
+        /* ================= INITIALIZATION ON LOAD ================= */
+        window.onload = function() {
+            renderQuizQuestions();
+            filterMateri('pengantar');
+            initDragDrop();
+            initMatchPair();
+            initTTS();
+            initWheel();
+            updateUI();
+        };
+    </script>
+</body>
+</html>
